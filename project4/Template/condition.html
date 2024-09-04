@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <center>
+        <h1><a href="{% url 'loop' %}"> GO to loop</a></h1>
+        <h1>Condition</h1>
+<!--using if-else condition-->
+
+    <!--{% if a > b %}
+    <h1>{{a}} is greater than {{b}}</h1>
+    {% else %}
+    <h1>{{b}} is greater than {{a}}</h1>
+    {% endif %} -->
+
+<!--using if condition-->
+
+    {% if a < 1000 %}
+    <h1>{{a}} is less than 1000</h1>
+    {% endif %}
+
+    </center>
+</body>
+</html>
