@@ -1,5 +1,5 @@
 """
-URL configuration for project8 project.
+URL configuration for project10 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -16,10 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import*
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('insert_Topic/',insert_Topic,name='insert_Topic'),
-    path('insert_Webpage/',insert_Webpage,name='insert_Webpage'),
-    path('insert_Accessrecord/',insert_Accessrecord,name='insert_Accessrecord'),
 ]
