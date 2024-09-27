@@ -9,9 +9,12 @@ def insert_Topic(request):
     TO=Topic.objects.get_or_create(topic_name=tn)
 
     if TO[1]:
-        return HttpResponse("New object is created.")
+        Topics=Topic.objects.all()
+        D={'Topics':Topics}
+        return render(request,'display_Topics.html',D)
+        #return HttpResponse("New object is created.")
     else:
-        return HttpResponse("Dear user the object is already exist.")
+        return HttpResponse("Dear user the Topic is already exist.")
     
 def insert_Webpage(request):
     tn=input("Enter topic name: ")
@@ -22,7 +25,12 @@ def insert_Webpage(request):
     WO=Webpage.objects.get_or_create(topic_name=TO,name=Name,url=Url,email=Email)[0]
 
     if WO:
-        return HttpResponse("Webpage is created.")
+        Webpages=Webpage.objects.all()
+        D={'Webpages':Webpages}
+        return render(request,'display_Webpages.html',D)
+        #return HttpResponse("Webpage is created.")
+    else:
+        return HttpResponse("Dear user the webpage is already exist.")
     
 def insert_Accessrecord(request):
     tn=input("Enter topic name: ")
@@ -35,4 +43,25 @@ def insert_Accessrecord(request):
     AO=Accessrecord.objects.get_or_create(name=WO,author=Author,date=Date)
 
     if AO:
-        return HttpResponse("Webpage is created.")
+        Accessrecords=Accessrecord.objects.all()
+        D={'Accessrecords':Accessrecords}
+        return render(request,'display_Accessrecords.html',D)
+        #return HttpResponse("Webpage is created.")
+    else:
+        return HttpResponse("Dear user the Accessrecord is already exist.")
+    
+
+def display_Topics(request):
+    Topics=Topic.objects.all()
+    D={'Topics':Topics}
+    return render(request,'display_Topics.html',D)
+
+def display_Webpages(request):
+    Webpages=Webpage.objects.all()
+    D={'Webpages':Webpages}
+    return render(request,'display_Webpages.html',D)
+
+def display_Accessrecords(request):
+    Accessrecords=Accessrecord.objects.all()
+    D={'Accessrecords':Accessrecords}
+    return render(request,'display_Accessrecords.html',D)
